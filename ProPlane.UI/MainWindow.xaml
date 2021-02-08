@@ -68,13 +68,13 @@
             <TextBlock Grid.Row="0" Grid.Column="1" FontSize="12" Text="{
                 Binding Path=SelectedItem.Created,
                 ElementName=dgList,
-                StringFormat=dd. MMMM yyyy}"/>
+                StringFormat=dd. MMMM yyyy - HH:mm}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Edit: " FontSize="12"/>
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12" Text="{
                 Binding ElementName=dgList,
                 Path=SelectedItem.LastEdit,
-                StringFormat=dd. MMMM yyyy}"/>
+                StringFormat=dd. MMMM yyyy - HH:mm}"/>
         </Grid>
 
         <!-- Buttons -->

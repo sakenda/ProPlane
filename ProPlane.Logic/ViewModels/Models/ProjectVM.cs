@@ -39,6 +39,10 @@ namespace ProPlane.Logic.ViewModels
                 InitializeFields();
                 _name.HasChanged = true;
                 _description.HasChanged = true;
+
+                _name.Value = "Neues Projekt";
+                _project.Created = DateTime.Now;
+                _lastEdit = DateTime.Now;
             }
 
             _name.PropertyChanged += Project_PropertyChanged;
@@ -47,6 +51,7 @@ namespace ProPlane.Logic.ViewModels
         public void AcceptChanges()
         {
             _name.AcceptChanges();
+            _lastEdit = DateTime.Now;
         }
 
         public void UndoChanges()
@@ -66,6 +71,7 @@ namespace ProPlane.Logic.ViewModels
         {
             _name = new StringVM(_project.Name);
             _description = new StringVM(_project.Description);
+            _lastEdit = _project.LastEdit;
         }
     }
 }

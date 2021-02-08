@@ -12,8 +12,8 @@ namespace ProPlane.Logic
         private ObservableCollection<ProjectVM> _listCollection;
         private ProjectVM _currentProject;
 
-        public ObservableCollection<ProjectVM> ListCollection => _listCollection;
         public ListCollectionView View;
+        public ObservableCollection<ProjectVM> ListCollection => _listCollection;
         public ProjectVM CurrentProject => _currentProject;
 
         public ICommand NewCommand { get; private set; }
