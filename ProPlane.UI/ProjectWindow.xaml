@@ -6,19 +6,118 @@
         mc:Ignorable="d"
         Title="ProjectOverview"
         WindowStartupLocation="CenterScreen"
-        Height="450"
-        Width="800"
-        Background="{StaticResource DarkBackground2}">
-    <Grid>
+        MinHeight="450"
+        MinWidth="800"
+        Height="1080"
+        Width="1920"
+        Style="{StaticResource defWindow}"
+        Background="{StaticResource DarkBackground1}">
+    <Grid Margin="10" Name="grid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Name="gridHeader" Height="35"/>
+            <RowDefinition Name="gridSubHeader" Height="60"/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Name="gridFooter" Height="60"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="{Binding Project.Name.Value}" Width="250"/>
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Height="{Binding ElementName=gridHeader, Path=Height}">
+            <Border MaxWidth="250" Margin="10 0 10 0">
+                <TextBlock Text="{Binding Project.Name.Value}" d:Text="Twitter-Clone"
+                           FontSize="24" FontWeight="Bold"
+                           Height="34"
+                           HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            </Border>
+
+            <Rectangle VerticalAlignment="Stretch" Width="2" Fill="White"/>
+
+            <TextBlock Text="{Binding Project.Description.Value}" d:Text="Clone der Twitter Webseite mit heftiger API-Anbindung."
+                       FontWeight="UltraLight"
+                       Margin="10 0 0 5"
+                       VerticalAlignment="Bottom"/>
         </StackPanel>
+
+        <!-- Subheader Overview -->
+        <Border Grid.Row="1" Background="{StaticResource DarkBackground2}"
+                CornerRadius="5"
+                Margin="0 10 0 0" Padding="0 5"
+                Height="{Binding ElementName=gridSubHeader, Path=Height}">
+            <Grid Margin="10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Repository: "/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="https://www.github.com/sakenda/Projekt" FontWeight="Bold"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Fortschritt: "/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="35 %" FontWeight="Bold"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="Offene Issues: "/>
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="8" FontWeight="Bold"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="4" Text="Erstellt: "/>
+                <TextBlock Grid.Row="0" Grid.Column="5" Text="{Binding Project.Created, StringFormat=dd.MM.yy}" FontWeight="Bold"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="4" Text="Bearbeitet: "/>
+                <TextBlock Grid.Row="1" Grid.Column="5" Text="{Binding Project.LastEdit, StringFormat=dd.MM.yy}" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <!-- Features -->
+        <TabControl TabStripPlacement="Top" Grid.Row="2" Background="Transparent" Margin="0 10 0 0" BorderThickness="0">
+
+            <TabItem Header="Features" IsSelected="True" Width="100">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0 10 0 0">
+                        <ListBox Name="listBox" BorderThickness="1"  Background="Transparent"
+                                 Margin="5 0" MinHeight="300"
+                                 VerticalAlignment="Top"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="40">
+                            <Button Content="remove" Width="80" Margin="5 10 5 0"/>
+                            <Button Content="add" Width="80" Margin="5 10 5 0"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Border Grid.Row="0" Grid.Column="1" Margin="10 0">
+                        <TextBlock Text="{Binding ElementName=listBox, Path=SelectedItem.Name.Value}" d:Text="Login"
+                                   FontSize="32" FontWeight="Bold"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Issues" Width="100">
+            </TabItem>
+        </TabControl>
+
+        <!-- Footer -->
+        <Border Grid.Row="3" Background="{StaticResource DarkBackground2}"
+                CornerRadius="5"
+                Margin="0 10 0 0" Padding="0 5"
+                Height="{Binding ElementName=gridFooter, Path=Height}">
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="save" Width="80" Margin="5 5"/>
+                <Button Content="undo" Width="80" Margin="5 5"/>
+                <Button Content="redo" Width="80" Margin="5 5"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

@@ -74,6 +74,7 @@
                 Path=SelectedItem.LastEdit,
                 StringFormat=dd. MMMM yyyy - HH:mm}"/>
         </Grid>
+        <TextBlock Grid.Row="1" Text="{Binding ElementName=dgList, Path=SelectedItem.Features.Count}" d:Text="0"/>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="2"
