@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProPlane.Logic\ProPlane.Logic.csproj"/>
+    <ProjectReference Include="..\ProPlane.Core\ProPlane.Core.csproj" />
   </ItemGroup>
 </Project>

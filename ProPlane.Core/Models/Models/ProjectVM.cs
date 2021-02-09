@@ -1,10 +1,10 @@
-﻿using ProPlane.Core.Entity;
-using ProPlane.Logic.ViewModels.Datatypes;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using ProPlane.Core.Database.Entity;
+using ProPlane.Core.Models.Datatypes;
 
-namespace ProPlane.Logic.ViewModels
+namespace ProPlane.Core.Models
 {
     public class ProjectVM : ViewModelBase
     {

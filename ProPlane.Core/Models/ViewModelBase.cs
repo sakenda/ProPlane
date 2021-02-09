@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ProPlane.Logic
+namespace ProPlane.Core.Models
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

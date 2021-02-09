@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProPlane.Core.Entity
+namespace ProPlane.Core.Database.Entity
 {
     public class Project
     {

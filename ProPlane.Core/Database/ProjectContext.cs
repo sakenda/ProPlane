@@ -1,5 +1,4 @@
-﻿using ProPlane.Core.Entity;
-using ProPlane.Core.EntityConfig;
+﻿using ProPlane.Core.Database.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 

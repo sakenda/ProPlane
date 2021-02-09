@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ProPlane.UI">
+                    xmlns:local="clr-namespace:ProPlane.View">
     <SolidColorBrush x:Key="DarkBackground1" Color="#34393C"/>
     <SolidColorBrush x:Key="DarkBackground2" Color="#495257"/>
     <SolidColorBrush x:Key="LightBackground" Color="#FFFFFF"/>

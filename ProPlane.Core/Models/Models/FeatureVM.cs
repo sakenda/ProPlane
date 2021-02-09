@@ -1,8 +1,8 @@
-﻿using ProPlane.Core.Entity;
-using ProPlane.Logic.ViewModels.Datatypes;
+﻿using ProPlane.Core.Database.Entity;
+using ProPlane.Core.Models.Datatypes;
 using System.ComponentModel;
 
-namespace ProPlane.Logic.ViewModels
+namespace ProPlane.Core.Models
 {
     public class FeatureVM : ViewModelBase
     {

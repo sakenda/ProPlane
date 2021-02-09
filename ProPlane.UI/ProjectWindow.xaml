@@ -1,14 +1,13 @@
-﻿<Window x:Class="ProPlane.UI.ProjectOverview"
+﻿<Window x:Class="ProPlane.View.ProjectWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProPlane.UI"
         mc:Ignorable="d"
         Title="ProjectOverview"
+        WindowStartupLocation="CenterScreen"
         Height="450"
         Width="800"
-        DataContext="{StaticResource mainViewModel}"
         Background="{StaticResource DarkBackground2}">
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="{Binding Name.Value}"/>
+            <TextBlock Text="{Binding Project.Name.Value}" Width="250"/>
         </StackPanel>
     </Grid>
 </Window>

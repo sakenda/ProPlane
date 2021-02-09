@@ -1,8 +1,7 @@
-﻿using ProPlane.Core.Entity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ProPlane.Core.EntityConfig
+namespace ProPlane.Core.Database.Entity
 {
     internal class ProjectEntityConfig : IEntityTypeConfiguration<Project>
     {

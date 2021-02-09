@@ -1,10 +1,9 @@
-﻿using ProPlane.Core.Database;
-using ProPlane.Core.Entity;
-using ProPlane.Logic.ViewModels;
+﻿using ProPlane.Core.Database.Entity;
+using ProPlane.Core.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace ProPlane.Logic.Database
+namespace ProPlane.Core.Database
 {
     public class DatabaseService
     {

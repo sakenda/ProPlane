@@ -1,4 +1,4 @@
-﻿using ProPlane.Core.Entity;
+﻿using ProPlane.Core.Database.Entity;
 using System;
 using System.Collections.Generic;
 
