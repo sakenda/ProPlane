@@ -14,7 +14,7 @@ namespace ProPlane.Core.Database
 
             using (var context = new ProjectContext())
             {
-                DatabaseSeed.Seed(context);
+                //DatabaseSeed.Seed(context);
                 projects = new List<Project>(context.Projects);
             }
 
@@ -24,6 +24,45 @@ namespace ProPlane.Core.Database
             }
 
             return projectsVM;
+        }
+
+        public void DeleteProject(ProjectVM project)
+        {
+            using (var context = new ProjectContext())
+            {
+                context.Projects.Remove(project.Project);
+                context.SaveChanges();
+            }
+        }
+
+        public ProjectVM InsertProject(ProjectVM project)
+        {
+            using (var context = new ProjectContext())
+            {
+                project.AcceptChanges();
+                context.Add(project.Project);
+                context.SaveChanges();
+            }
+
+            return new ProjectVM(project.Project);
+        }
+
+        public void UpdateProjects(ObservableCollection<ProjectVM> projects)
+        {
+            using (var context = new ProjectContext())
+            {
+                foreach (ProjectVM project in projects)
+                {
+                    if (project.Changed)
+                    {
+                        project.AcceptChanges();
+                        context.Add(project.Project);
+                    }
+                    else continue;
+                }
+
+                context.SaveChanges();
+            }
         }
     }
 }

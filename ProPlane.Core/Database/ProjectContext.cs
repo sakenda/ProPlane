@@ -13,10 +13,10 @@ namespace ProPlane.Core.Database
 
         public ProjectContext()
         {
-            Database.EnsureDeleted();
-            Console.WriteLine("Datenbank gelöscht.");
+            //Database.EnsureDeleted();
+            //Console.WriteLine("Datenbank gelöscht.");
             Database.EnsureCreated();
-            Console.WriteLine("Datenbank neu erstellt.");
+            Console.WriteLine("Datenbank erstellt.");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

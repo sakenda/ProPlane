@@ -7,18 +7,24 @@ namespace ProPlane.Core.Models
     {
         private DatabaseService _database = new DatabaseService();
         private ObservableCollection<ProjectVM> _listCollection;
-        private ProjectVM _currentProject;
 
         public ObservableCollection<ProjectVM> ListCollection => _listCollection;
-        public ProjectVM CurrentProject
-        {
-            get => _currentProject;
-            set => SetProperty(ref _currentProject, value);
-        }
 
         public MainDataContext()
         {
             _listCollection = _database.GetProjects();
+        }
+
+        public void AddNewProject()
+        {
+            ProjectVM p = _database.InsertProject(new ProjectVM(null));
+            _listCollection.Add(p);
+        }
+
+        public void DeleteProject(ProjectVM project)
+        {
+            _database.DeleteProject(project);
+            _listCollection.Remove(project);
         }
     }
 }

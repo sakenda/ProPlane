@@ -42,6 +42,9 @@ namespace ProPlane.Core.Models
         {
             _name.AcceptChanges();
             _description.AcceptChanges();
+
+            _feature.Name = _name.Value;
+            _feature.Description = _description.Value;
         }
 
         public void UndoChanges()

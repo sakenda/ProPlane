@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using ProPlane.Core.Database.Entity;
 using ProPlane.Core.Models.Datatypes;
@@ -15,6 +16,7 @@ namespace ProPlane.Core.Models
         private ObservableCollection<FeatureVM> _features;
         private bool _changed;
 
+        public Project Project => _project;
         public StringVM Name => _name;
         public StringVM Description => _description;
         public DateTime LastEdit => _lastEdit;
@@ -42,21 +44,38 @@ namespace ProPlane.Core.Models
 
                 _name.Value = "Neues Projekt";
                 _project.Created = DateTime.Now;
+                _project.LastEdit = DateTime.Now;
                 _lastEdit = DateTime.Now;
             }
 
             _name.PropertyChanged += Project_PropertyChanged;
+            _features.CollectionChanged += Features_CollectionChanged;
         }
 
         public void AcceptChanges()
         {
             _name.AcceptChanges();
+            _description.AcceptChanges();
+            foreach (FeatureVM item in _features)
+            {
+                if (item.Changed)
+                    item.AcceptChanges();
+            }
+
+            _project.Name = _name.Value;
+            _project.Description = _description.Value;
             _lastEdit = DateTime.Now;
         }
 
         public void UndoChanges()
         {
             _name.UndoChanges();
+            _description.UndoChanges();
+            foreach (FeatureVM item in _features)
+            {
+                if (item.Changed)
+                    item.UndoChanges();
+            }
         }
 
         private void Project_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -67,11 +86,18 @@ namespace ProPlane.Core.Models
                 Changed = false;
         }
 
+        private void Features_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            foreach (FeatureVM item in _features)
+                if (item.Changed) Changed = true;
+        }
+
         private void InitializeFields()
         {
             _name = new StringVM(_project.Name);
             _description = new StringVM(_project.Description);
             _lastEdit = _project.LastEdit;
+            _features = new ObservableCollection<FeatureVM>();
         }
     }
 }

@@ -15,16 +15,24 @@ namespace ProPlane.View
 
         private void OpenProject_Click(object sender, RoutedEventArgs e)
         {
-            ProjectWindow projectWindow = new ProjectWindow(dgList.SelectedItem as ProjectVM);
-            projectWindow.Show();
+            var currentItem = dgList.SelectedItem as ProjectVM;
+            if (currentItem != null)
+            {
+                ProjectWindow projectWindow = new ProjectWindow(currentItem);
+                projectWindow.Show();
+            }
         }
 
         private void NewProject_Click(object sender, RoutedEventArgs e)
         {
+            _main.AddNewProject();
         }
 
         private void DeleteProject_Click(object sender, RoutedEventArgs e)
         {
+            var currentItem = dgList.SelectedItem as ProjectVM;
+            if (currentItem != null)
+                _main.DeleteProject(currentItem);
         }
     }
 }
