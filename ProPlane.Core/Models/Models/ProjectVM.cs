@@ -98,6 +98,14 @@ namespace ProPlane.Core.Models
             _description = new StringVM(_project.Description);
             _lastEdit = _project.LastEdit;
             _features = new ObservableCollection<FeatureVM>();
+
+            if (_project.Features?.Count > 0)
+            {
+                foreach (Feature item in _project.Features)
+                {
+                    _features.Add(new FeatureVM(item));
+                }
+            }
         }
     }
 }

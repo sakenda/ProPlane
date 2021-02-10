@@ -14,9 +14,6 @@ namespace ProPlane.View
 
             _main = new ProjectDataContext(project);
             DataContext = _main;
-
-            listBox.ItemsSource = _main.Project.Project.Features;
-            Console.WriteLine(listBox.Items.Count);
         }
     }
 }

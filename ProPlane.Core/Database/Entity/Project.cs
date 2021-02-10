@@ -14,10 +14,5 @@ namespace ProPlane.Core.Database.Entity
         public DateTime Created { get; set; }
         public DateTime LastEdit { get; set; }
         public List<Feature> Features { get; set; }
-
-        public Project()
-        {
-            Features = new List<Feature>();
-        }
     }
 }

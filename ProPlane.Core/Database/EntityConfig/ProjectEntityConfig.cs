@@ -9,6 +9,8 @@ namespace ProPlane.Core.Database.Entity
         {
             builder.Property(p => p.Name)
                    .IsRequired();
+            builder.HasMany(p => p.Features)
+                   .WithOne(f => f.Project);
         }
     }
 }
