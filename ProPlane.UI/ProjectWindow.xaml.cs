@@ -14,6 +14,8 @@ namespace ProPlane.View
 
             _main = new ProjectDataContext(project);
             DataContext = _main;
+
+            this.Title = _main.Project.Name.Value + " - ProPlane";
         }
     }
 }
