@@ -21,6 +21,8 @@ namespace ProPlane.Core.Models
         public StringVM Name => _name;
         public StringVM Description => _description;
         public StringVM RepoLink => _repoLink;
+        public string Progress => null;
+        public string OpenIssues => null;
         public DateTime LastEdit => _lastEdit;
         public DateTime Created => _project.Created;
         public ObservableCollection<FeatureVM> Features => _features;
