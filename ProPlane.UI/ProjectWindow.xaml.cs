@@ -1,6 +1,8 @@
 ﻿using ProPlane.Core.Models;
 using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace ProPlane.View
 {
