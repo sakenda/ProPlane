@@ -1,6 +1,7 @@
 ﻿using ProPlane.Core.Database.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics;
 
 namespace ProPlane.Core.Database
 {
@@ -14,9 +15,9 @@ namespace ProPlane.Core.Database
         public ProjectContext()
         {
             Database.EnsureDeleted();
-            Console.WriteLine("Datenbank gelöscht.");
+            Trace.WriteLine("Datenbank gelöscht.");
             Database.EnsureCreated();
-            Console.WriteLine("Datenbank erstellt.");
+            Trace.WriteLine("Datenbank erstellt.");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
