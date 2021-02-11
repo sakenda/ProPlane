@@ -58,16 +58,16 @@
             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0 0 20 0">
 
                 <TextBlock Text="Fortschritt: "/>
-                <TextBlock Text="35 %" FontWeight="Bold"/>
+                <TextBlock d:Text="35 %" Text="{Binding Project.Progress, TargetNullValue='0 %'}" FontWeight="Bold"/>
 
                 <TextBlock Text="Offene Fehler: "/>
-                <TextBlock Text="8" FontWeight="Bold"/>
+                <TextBlock d:Text="8 / 15" Text="{Binding Project.OpenIssues, TargetNullValue='0 / 0'}" FontWeight="Bold"/>
 
                 <TextBlock Text="Erstellt: "/>
-                <TextBlock Text="{Binding Project.Created, StringFormat='dd. MMMM yyyy'}" FontWeight="Bold"/>
+                <TextBlock d:Text="01. Januar 2001" Text="{Binding Project.Created, StringFormat='dd. MMMM yyyy'}" FontWeight="Bold"/>
 
                 <TextBlock Text="Bearbeitet: "/>
-                <TextBlock Text="{Binding Project.LastEdit, StringFormat='dd. MMMM yyyy'}" FontWeight="Bold"/>
+                <TextBlock d:Text="01. Januar 2001" Text="{Binding Project.LastEdit, StringFormat='dd. MMMM yyyy'}" FontWeight="Bold"/>
 
                 <Rectangle Height="2" Fill="White" Margin="0 20"/>
 
