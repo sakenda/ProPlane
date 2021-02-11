@@ -1,7 +1,9 @@
-﻿using ProPlane.Core.Database.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using ProPlane.Core.Database.Entity;
 using ProPlane.Core.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ProPlane.Core.Database
 {
@@ -14,8 +16,10 @@ namespace ProPlane.Core.Database
 
             using (var context = new ProjectContext())
             {
-                //DatabaseSeed.Seed(context);
-                projects = new List<Project>(context.Projects);
+                DatabaseSeed.Seed(context);
+                var query = context.Projects.Include(p => p.Features).ToList();
+
+                projects = new List<Project>(query);
             }
 
             foreach (Project project in projects)

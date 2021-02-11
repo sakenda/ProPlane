@@ -26,6 +26,7 @@ namespace ProPlane.Core.Database
             {
                 Name = "Projekt 1",
                 Description = "Beschreibung zu Projekt 1. Test Text Test Text Test Text Test Text Test Text ",
+                RepoLink = null,
                 Created = DateTime.Now,
                 LastEdit = DateTime.Now,
                 Features = new List<Feature>()
@@ -40,6 +41,7 @@ namespace ProPlane.Core.Database
             {
                 Name = "Projekt 2",
                 Description = "Beschreibung zu Projekt 2",
+                RepoLink = "www.github.com/user/project",
                 Created = DateTime.Now,
                 LastEdit = DateTime.Now,
                 Features = new List<Feature>()
@@ -52,6 +54,7 @@ namespace ProPlane.Core.Database
             {
                 Name = "Projekt 3",
                 Description = "Beschreibung zu Projekt 3",
+                RepoLink = "www.github.com/user/project",
                 Created = DateTime.Now,
                 LastEdit = DateTime.Now,
                 Features = new List<Feature>()
@@ -63,6 +66,7 @@ namespace ProPlane.Core.Database
             {
                 Name = "Projekt 4",
                 Description = "Beschreibung zu Projekt 4",
+                RepoLink = null,
                 Created = DateTime.Now,
                 LastEdit = DateTime.Now,
                 Features = new List<Feature>()
