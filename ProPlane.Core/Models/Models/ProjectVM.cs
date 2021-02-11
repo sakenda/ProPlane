@@ -12,6 +12,7 @@ namespace ProPlane.Core.Models
         private Project _project;
         private StringVM _name;
         private StringVM _description;
+        private StringVM _repoLink;
         private DateTime _lastEdit;
         private ObservableCollection<FeatureVM> _features;
         private bool _changed;
@@ -19,6 +20,9 @@ namespace ProPlane.Core.Models
         public Project Project => _project;
         public StringVM Name => _name;
         public StringVM Description => _description;
+        public StringVM RepoLink => _repoLink;
+        public string Progress => null;
+        public string OpenIssues => null;
         public DateTime LastEdit => _lastEdit;
         public DateTime Created => _project.Created;
         public ObservableCollection<FeatureVM> Features => _features;
@@ -41,6 +45,7 @@ namespace ProPlane.Core.Models
                 InitializeFields();
                 _name.HasChanged = true;
                 _description.HasChanged = true;
+                _repoLink.HasChanged = true;
 
                 _name.Value = "Neues Projekt";
                 _project.Created = DateTime.Now;
@@ -49,6 +54,8 @@ namespace ProPlane.Core.Models
             }
 
             _name.PropertyChanged += Project_PropertyChanged;
+            _description.PropertyChanged += Project_PropertyChanged;
+            _repoLink.PropertyChanged += Project_PropertyChanged;
             _features.CollectionChanged += Features_CollectionChanged;
         }
 
@@ -56,6 +63,7 @@ namespace ProPlane.Core.Models
         {
             _name.AcceptChanges();
             _description.AcceptChanges();
+            _repoLink.AcceptChanges();
             foreach (FeatureVM item in _features)
             {
                 if (item.Changed)
@@ -64,6 +72,7 @@ namespace ProPlane.Core.Models
 
             _project.Name = _name.Value;
             _project.Description = _description.Value;
+            _project.RepoLink = _repoLink.Value;
             _lastEdit = DateTime.Now;
         }
 
@@ -71,6 +80,7 @@ namespace ProPlane.Core.Models
         {
             _name.UndoChanges();
             _description.UndoChanges();
+            _repoLink.UndoChanges();
             foreach (FeatureVM item in _features)
             {
                 if (item.Changed)
@@ -80,7 +90,7 @@ namespace ProPlane.Core.Models
 
         private void Project_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (_name.HasChanged || _description.HasChanged)
+            if (_name.HasChanged || _description.HasChanged || _repoLink.HasChanged)
                 Changed = true;
             else
                 Changed = false;
@@ -96,8 +106,17 @@ namespace ProPlane.Core.Models
         {
             _name = new StringVM(_project.Name);
             _description = new StringVM(_project.Description);
+            _repoLink = new StringVM(_project.RepoLink);
             _lastEdit = _project.LastEdit;
             _features = new ObservableCollection<FeatureVM>();
+
+            if (_project.Features?.Count > 0)
+            {
+                foreach (Feature item in _project.Features)
+                {
+                    _features.Add(new FeatureVM(item));
+                }
+            }
         }
     }
 }

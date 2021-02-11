@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Colors.xaml"/>
+                <ResourceDictionary Source="Resources/TextBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="defWindow" TargetType="{x:Type Window}">

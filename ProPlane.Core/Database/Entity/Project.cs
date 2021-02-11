@@ -11,13 +11,9 @@ namespace ProPlane.Core.Database.Entity
         public int ProjectID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string RepoLink { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastEdit { get; set; }
         public List<Feature> Features { get; set; }
-
-        public Project()
-        {
-            Features = new List<Feature>();
-        }
     }
 }

@@ -16,7 +16,7 @@ namespace ProPlane.Core.Database
 
             using (var context = new ProjectContext())
             {
-                DatabaseSeed.Seed(context);
+                //DatabaseSeed.Seed(context);
                 var query = context.Projects.Include(p => p.Features).ToList();
 
                 projects = new List<Project>(query);
