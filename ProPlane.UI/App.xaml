@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="Resources/Colors.xaml"/>
                 <ResourceDictionary Source="Resources/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Resources/ToggleButtonStyle.xaml"/>
+                <ResourceDictionary Source="Resources/ButtonStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="defWindow" TargetType="{x:Type Window}">
