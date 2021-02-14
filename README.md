@@ -6,6 +6,7 @@ Zum erstrelease sind folgende Funktionen geplant: Feature tracking, Bug tracking
 
 ## User Interface (Work in Progress)
 ![](header.png)
+![](animatedPanels.gif)
 
 ## Über Mich
 Michael Barth
